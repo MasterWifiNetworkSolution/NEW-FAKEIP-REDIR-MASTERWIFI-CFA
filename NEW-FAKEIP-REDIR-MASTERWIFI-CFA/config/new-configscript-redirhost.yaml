@@ -9,7 +9,7 @@ mode: script
 log-level: info
 ipv6: false
 external-controller: 0.0.0.0:9090
-external-ui: "/usr/share/openclash/dashboard"
+external-ui: folder
 dns:
   enable: true
   ipv6: false
@@ -22,10 +22,13 @@ dns:
   - 8.8.4.4
   - 1.1.1.1
   - 1.0.0.1
-  - 192.168.8.1
   nameserver:
-  - 192.168.8.1
-  - dhcp://"eth1"
+  - 114.114.114.114
+  - 119.29.29.29
+  - 8.8.8.8
+  - 8.8.4.4
+  - 1.1.1.1
+  - 1.0.0.1
   fallback:
   - https://cloudflare-dns.com/dns-query
   - https://dns.google/dns-query
@@ -136,7 +139,7 @@ dns:
 proxy-providers:
   newmaster:
     type: file
-    path: "./proxy_provider/newmaster.yaml"
+    path: ./newmaster.yaml
     health-check:
       enable: true
       interval: 99
@@ -152,143 +155,143 @@ rule-providers:
   Applemaster:
     type: file
     behavior: classical
-    path: "./rule_provider/applemaster.yaml"
+    path: ./applemaster.yaml
   Browsermaster:
     type: file
     behavior: classical
-    path: "./rule_provider/browsermaster.yaml"
+    path: ./browsermaster.yaml
   Callofdutymaster:
     type: file
     behavior: classical
-    path: "./rule_provider/callofdutymaster.yaml"
+    path: ./callofdutymaster.yaml
   Deezermaster:
     type: file
     behavior: classical
-    path: "./rule_provider/deezermaster.yaml"
+    path: ./deezermaster.yaml
   Disneymaster:
     type: file
     behavior: classical
-    path: "./rule_provider/disneymaster.yaml"
+    path: ./disneymaster.yaml
   Facebookmaster:
     type: file
     behavior: classical
-    path: "./rule_provider/facebookmaster.yaml"
+    path: ./facebookmaster.yaml
   Garenamaster:
     type: file
     behavior: classical
-    path: "./rule_provider/garenamaster.yaml"
+    path: ./garenamaster.yaml
   Iklanmaster:
     type: file
     behavior: classical
-    path: "./rule_provider/iklanmaster.yaml"
+    path: ./iklanmaster.yaml
   Instagrammaster:
     type: file
     behavior: classical
-    path: "./rule_provider/instagrammaster.yaml"
+    path: ./instagrammaster.yaml
   LAN:
     type: file
     behavior: classical
-    path: "./rule_provider/LAN.yaml"
+    path: ./LAN.yaml
   Langitmusikmaster:
     type: file
     behavior: classical
-    path: "./rule_provider/langitmusikmaster.yaml"
+    path: ./langitmusikmaster.yaml
   Mobilegendsmaster:
     type: file
     behavior: classical
-    path: "./rule_provider/mlmaster.yaml"
+    path: ./mlmaster.yaml
   Molamaster:
     type: file
     behavior: classical
-    path: "./rule_provider/molamaster.yaml"
+    path: ./molamaster.yaml
   Maxtreammaster:
     type: file
     behavior: classical
-    path: "./rule_provider/maxtreammaster.yaml"
+    path: ./maxtreammaster.yaml
   Netflixmaster:
     type: file
     behavior: classical
-    path: "./rule_provider/netflixmaster.yaml"
+    path: ./netflixmaster.yaml
   Nimomaster:
     type: file
     behavior: classical
-    path: "./rule_provider/nimomaster.yaml"
+    path: ./nimomaster.yaml
   Onlineshopmaster:
     type: file
     behavior: classical
-    path: "./rule_provider/onlineshopmaster.yaml"
+    path: ./onlineshopmaster.yaml
   Pubgmaster:
     type: file
     behavior: classical
-    path: "./rule_provider/pubgmaster.yaml"
+    path: ./pubgmaster.yaml
   Ressomaster:
     type: file
     behavior: classical
-    path: "./rule_provider/ressomaster.yaml"
+    path: ./ressomaster.yaml
   Robloxmaster:
     type: file
     behavior: classical
-    path: "./rule_provider/robloxmaster.yaml"
+    path: ./robloxmaster.yaml
   Rctiplusmaster:
     type: file
     behavior: classical
-    path: "./rule_provider/rctiplusmaster.yaml"
+    path: ./rctiplusmaster.yaml
   Restreammaster:
     type: file
     behavior: classical
-    path: "./rule_provider/restreammaster.yaml"
+    path: ./restreammaster.yaml
   Smulemaster:
     type: file
     behavior: classical
-    path: "./rule_provider/smulemaster.yaml"
+    path: ./smulemaster.yaml
   Soundcloudmaster:
     type: file
     behavior: classical
-    path: "./rule_provider/soundcloudmaster.yaml"
+    path: ./soundcloudmaster.yaml
   Starmakermaster:
     type: file
     behavior: classical
-    path: "./rule_provider/starmakermaster.yaml"
+    path: ./starmakermaster.yaml
   Spotifymaster:
     type: file
     behavior: classical
-    path: "./rule_provider/spotifymaster.yaml"
+    path: ./spotifymaster.yaml
   Speedtestmaster:
     type: file
     behavior: classical
-    path: "./rule_provider/speedtestmaster.yaml"
+    path: ./speedtestmaster.yaml
   Tiktokmaster:
     type: file
     behavior: classical
-    path: "./rule_provider/tiktokmaster.yaml"
+    path: ./tiktokmaster.yaml
   Twittermaster:
     type: file
     behavior: classical
-    path: "./rule_provider/twittermaster.yaml"
+    path: ./twittermaster.yaml
   Universitasmaster:
     type: file
     behavior: classical
-    path: "./rule_provider/universitasmaster.yaml"
+    path: ./universitasmaster.yaml
   Vidiomaster:
     type: file
     behavior: classical
-    path: "./rule_provider/vidiomaster.yaml"
+    path: ./vidiomaster.yaml
   Wesingmaster:
     type: file
     behavior: classical
-    path: "./rule_provider/wesingmaster.yaml"
+    path: ./wesingmaster.yaml
   Whatsappmaster:
     type: file
     behavior: classical
-    path: "./rule_provider/whatsappmaster.yaml"
+    path: ./whatsappmaster.yaml
   Youtubemaster:
     type: file
     behavior: classical
-    path: "./rule_provider/youtubemaster.yaml"
+    path: ./youtubemaster.yaml
   Zoommaster:
     type: file
     behavior: classical
-    path: "./rule_provider/zoommaster.yaml"
+    path: ./zoommaster.yaml
 script:
   code: |
     def main(ctx, metadata):
@@ -410,6 +413,6 @@ profile:
   store-selected: true
   store-fake-ip: true
 experimental:
-  interface-name: eth0
+  interface-name: en0
 secret: masterwifi
 bind-address: "*"
